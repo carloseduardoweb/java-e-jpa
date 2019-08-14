@@ -1,9 +1,12 @@
 package br.com.caelum.financas.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Categoria {
@@ -14,8 +17,8 @@ public class Categoria {
 	
 	private String nome;
 	
-//	@ManyToMany(mappedBy = "categorias")
-//	private List<Movimentacao> movimentacoes;
+	@ManyToMany(mappedBy = "categorias")
+	private List<Movimentacao> movimentacoes;
 	
 	@Deprecated
 	public Categoria() {
@@ -45,8 +48,8 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-//	public List<Movimentacao> getMovimentacoes() {
-//		return movimentacoes;
-//	}
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
 
 }
